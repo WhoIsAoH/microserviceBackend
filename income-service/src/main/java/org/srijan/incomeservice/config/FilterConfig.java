@@ -1,17 +1,16 @@
 package org.srijan.incomeservice.config;
 
-//import org.srijan.commonutils.JwtAuthenticationFilter
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.srijan.commonutils.JwtAuthenticationFilter;
 
 @Configuration
+@RequiredArgsConstructor
 public class FilterConfig {
 
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public FilterRegistrationBean<JwtAuthenticationFilter> jwtFilterRegistration() {

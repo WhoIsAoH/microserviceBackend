@@ -40,22 +40,22 @@ public class JwtUtil {
         }
     }
 
-    // Extracts subject (usually email/username)
+    // 🔹 Extracts subject (usually email/username)
     public String extractSubject(String token) {
         return extractAllClaims(token).getSubject();
     }
 
-    // Extracts custom claim: userId
-    public Integer extractUserId(String token) {
-        return extractAllClaims(token).get("userId", Integer.class);
+    // 🔹 Extracts custom claim: userId
+    public Long extractUserId(String token) {
+        return extractAllClaims(token).get("userId", Long.class);
     }
 
-    // Extracts custom claim: roles
+    // 🔹 Extracts custom claim: roles
     public String extractRole(String token) {
         return extractAllClaims(token).get("roles", String.class);
     }
 
-    // Optional: extract firstName
+    // 🔹 Optional: extract firstName
     public String extractFirstName(String token) {
         return extractAllClaims(token).get("firstName", String.class);
     }

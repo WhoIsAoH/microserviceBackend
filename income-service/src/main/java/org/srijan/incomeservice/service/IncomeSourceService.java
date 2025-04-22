@@ -2,15 +2,14 @@ package org.srijan.incomeservice.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.srijan.incomeservice.config.JwtUtil;
+import org.srijan.commonutils.JwtUtil;
 import org.srijan.incomeservice.dto.IncomeDto;
 import org.srijan.incomeservice.entity.IncomeSource;
 import org.srijan.incomeservice.repository.IncomeSourceRepository;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +17,7 @@ import java.util.List;
 public class IncomeSourceService {
 
     private final IncomeSourceRepository incomeSourceRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
     private final JwtUtil jwtUtil;
     private final HttpServletRequest request;
 
@@ -48,7 +47,8 @@ public class IncomeSourceService {
         incomeSource.setAmount(incomeDto.getAmount());
         incomeSource.setDate(incomeDto.getDate());
         incomeSource.setRemarks(incomeDto.getRemarks());
-        incomeSource.setCustomerId(jwtUtil.extractUserId(request.getHeader("Authorization").substring(7)));
+//        incomeSource.setCustomerId(jwtUtil.extractUserId(request.getHeader("Authorization").substring(7)));
+        incomeSource.setCustomerId(1L);
         return incomeSourceRepository.save(incomeSource);
     }
 

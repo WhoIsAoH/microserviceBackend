@@ -29,7 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             try {
                 if (jwtUtil.validateToken(jwt)) {
-                    Integer userId = jwtUtil.extractUserId(jwt);
+                    Long userId = jwtUtil.extractUserId(jwt);
                     request.setAttribute("userId", userId);
                 } else {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired JWT token");

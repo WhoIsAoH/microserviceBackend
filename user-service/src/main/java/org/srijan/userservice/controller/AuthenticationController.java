@@ -12,7 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/auth")
+@RequestMapping("api/user")
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthenticationService service;
@@ -30,7 +30,7 @@ public class AuthenticationController {
         return service.authenticate(request);
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public UserResponseDto getUser(@PathVariable Integer id) {
         UserResponseDto userResponseDto=userService.getUserById(id);
         return userResponseDto;
