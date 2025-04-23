@@ -18,7 +18,7 @@ public class IncomeSourceService {
 
     private final IncomeSourceRepository incomeSourceRepository;
     private final WebClient.Builder webClientBuilder;
-    private final JwtUtil jwtUtil;
+//    private final JwtUtil jwtUtil;
     private final HttpServletRequest request;
 
     public List<IncomeSource> findAllByCustomerId() {
